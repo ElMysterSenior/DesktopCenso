@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package desktopcenso;
+package modelo;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,7 +13,7 @@ import java.util.List;
  * @author oscar
  */
 public class Vivienda {
-
+    private int idvivienda;//id de la vivienda
     private String tipo; // (casa, apartamento, etc.)
     private String material; //(Vivienda de concreto, Vivienda de adobe (antiguo), Vivienda de ladrillo, Vivienda de madera...)
     private String saneamiento; //(alcantarillado, pozo séptico, letrina, etc.)
@@ -24,14 +24,17 @@ public class Vivienda {
     private String direccion; //(Dirección de la vivienda)
     private int numHabitaciones;//(Número de habitaciones)
     private int numBanios;//(Número de baños)
+    private int id_municipio;//(cve del municipio)
     private String municipio;//(nombre del municipio)
+    private int id_localidad;//(cve de la localidad)
     private String localidad;//(nombre de la localidad)
     private String ubicacion; //(Rural, urbana)
     private List<Habitante> habitantes; // Agregamos un atributo para almacenar los habitantes
     
      private static Vivienda instance = null;
 
-    public Vivienda(String tipo, String material, String saneamiento, boolean agua, boolean luz, boolean drenaje, String tendencia, String direccion, int numHabitaciones, int numBanios, String municipio, String localidad, String ubicacion) {
+   /* public Vivienda(int idvivienda,String tipo, String material, String saneamiento, boolean agua, boolean luz, boolean drenaje, String tendencia, String direccion, int numHabitaciones, int numBanios, String municipio, String localidad, String ubicacion) {
+        this.idvivienda =idvivienda;
         this.tipo = tipo;
         this.material = material;
         this.saneamiento = saneamiento;
@@ -48,11 +51,20 @@ public class Vivienda {
         this.habitantes = new ArrayList<Habitante>(); // Inicializamos la lista de habitantes
     }
     
-     public static Vivienda getInstance(String tipo, String material, String saneamiento, boolean agua, boolean luz, boolean drenaje, String tendencia, String direccion, int numHabitaciones, int numBanios, String municipio, String localidad, String ubicacion) {
+     public static Vivienda getInstance(int idvivienda,String tipo, String material, String saneamiento, boolean agua, boolean luz, boolean drenaje, String tendencia, String direccion, int numHabitaciones, int numBanios, String municipio, String localidad, String ubicacion) {
         if (instance == null) {
-            instance = new Vivienda(tipo, material, saneamiento, agua, luz, drenaje, tendencia, direccion, numHabitaciones, numBanios, municipio, localidad, ubicacion);
+            instance = new Vivienda(idvivienda,tipo, material, saneamiento, agua, luz, drenaje, tendencia, direccion, numHabitaciones, numBanios, municipio, localidad, ubicacion);
         }
         return instance;
+    }
+*/
+
+    public int getIdvivienda() {
+        return idvivienda;
+    }
+
+    public void setIdvivienda(int idvivienda) {
+        this.idvivienda = idvivienda;
     }
 
     public String getTipo() {
@@ -109,6 +121,21 @@ public class Vivienda {
 
     public void setLocalidad(String localidad) {
         this.localidad = localidad;
+    }
+        public int getId_municipio() {
+        return id_municipio;
+    }
+
+    public void setId_municipio(int id_municipio) {
+        this.id_municipio = id_municipio;
+    }
+
+    public int getId_localidad() {
+        return id_localidad;
+    }
+
+    public void setId_localidad(int id_localidad) {
+        this.id_localidad = id_localidad;
     }
 
     public String getUbicacion() {

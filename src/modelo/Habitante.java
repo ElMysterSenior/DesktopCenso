@@ -3,8 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package desktopcenso;
-
+package modelo;
 
 import java.util.ArrayList;
 
@@ -16,18 +15,29 @@ import java.util.List;
  */
 public class Habitante {
 
+    private int idhabitante;
     private String nombre;
     private int edad;
-    private char sexo;
+    private String sexo;
     private String estadoCivil;
     private String nivelEducativo;
     private List<Ocupacion> ocupaciones;
-    private double ingresos;
+    private int ingresos;
     private String nacionalidad;
-    
+    private int idvivienda;
+
+    public int getIdvivienda() {
+        return idvivienda;
+    }
+
+    public void setIdvivienda(int idvivienda) {
+        this.idvivienda = idvivienda;
+    }
+
     private static Habitante instance = null;
 
-    public Habitante(String nombre, int edad, char sexo, String estadoCivil, String nivelEducativo, double ingresos, String nacionalidad) {
+   /* public Habitante(int idhabitante, String nombre, int edad, String sexo, String estadoCivil, String nivelEducativo, int ingresos, String nacionalidad) {
+        this.idhabitante = idhabitante;
         this.nombre = nombre;
         this.edad = edad;
         this.sexo = sexo;
@@ -37,15 +47,23 @@ public class Habitante {
         this.nacionalidad = nacionalidad;
         this.ocupaciones = new ArrayList<Ocupacion>(); // Inicializamos la lista de habitantes
     }
-    
-    public static Habitante getInstance(String nombre, int edad, char sexo, String estadoCivil, String nivelEducativo, double ingresos, String nacionalidad) {
+
+    public static Habitante getInstance(int idhabitante, String nombre, int edad, String sexo, String estadoCivil, String nivelEducativo, int ingresos, String nacionalidad) {
         if (instance == null) {
-            instance = new Habitante(nombre, edad, sexo, estadoCivil, nivelEducativo, ingresos, nacionalidad);
+            instance = new Habitante(idhabitante, nombre, edad, sexo, estadoCivil, nivelEducativo, ingresos, nacionalidad);
         }
         return instance;
     }
+    */
 
-    
+    public int getIdhabitante() {
+        return idhabitante;
+    }
+
+    public void setIdhabitante(int idhabitante) {
+        this.idhabitante = idhabitante;
+    }
+
     public String getNombre() {
         return nombre;
     }
@@ -62,11 +80,11 @@ public class Habitante {
         this.edad = edad;
     }
 
-    public char getSexo() {
+    public String getSexo() {
         return sexo;
     }
 
-    public void setSexo(char sexo) {
+    public void setSexo(String sexo) {
         this.sexo = sexo;
     }
 
@@ -94,11 +112,11 @@ public class Habitante {
         return ocupaciones; // Agregamos un método para acceder a la lista de habitantes
     }
 
-    public double getIngresos() {
+    public int getIngresos() {
         return ingresos;
     }
 
-    public void setIngresos(double ingresos) {
+    public void setIngresos(int ingresos) {
         this.ingresos = ingresos;
     }
 

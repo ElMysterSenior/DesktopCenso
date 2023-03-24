@@ -12,36 +12,18 @@ package desktopcenso;
 public class App {
 
     public static void main(String[] args) {
-        // Crear viviendas
-        Vivienda vivienda1 = new Vivienda("casa", "concreto", "alcantarillado", true, true, true, "propia", "Calle Falsa 123", 3, 2, "urbana");
-        Vivienda vivienda2 = new Vivienda("departamento", "adobe", "alcantarillado", true, false, true, "rentada", "Calle Falsa 956", 1, 1, "urbana");
-        // Agregar habitantes a las viviendas
-        // Creamos un objeto Habitante para representar a la persona con la primera ocupación
-        Habitante habitante1 = new Habitante("Juan", 30, 'M', "Soltero", "Licenciatura", "Programador", 2000, "Mexicano");
 
-// Creamos un objeto Habitante para representar a la misma persona con la segunda ocupación
-        Habitante habitante2 = new Habitante("Juan", 30, 'M', "Soltero", "Licenciatura", "Diseñador", 1500, "Mexicano");
+        Habitante habitante = Habitante.getInstance("Juan", 30, 'M', "Casado", "Universitario", 50000, "Mexicano");
+        Ocupacion ocupacion = new Ocupacion(1, "Ingeniero", "Ingeniero Mecatronica");
+        habitante.agregarOcupacion(ocupacion);
+        
+        // Crear una instancia de Vivienda usando el patrón Singleton
+        Vivienda vivienda = Vivienda.getInstance("Casa", "Ladrillo", "Bueno", true, true, true, "Urbana", "Calle 123", 3, 2, "Ciudad", "Barrio", "Centro");
 
-// Mostramos los datos de ambos objetos
-        System.out.println("Datos de la persona con la ocupación de programador:");
-        habitante1.mostrarDatos();
-
-        System.out.println("Datos de la persona con la ocupación de diseñador:");
-        habitante2.mostrarDatos();
-
-        Habitante habitante3 = new Habitante("Carlos", 40, 'M', "Casado", "Universidad", "Ingeniero", 10000, "Española");
-
-        vivienda1.agregarHabitante(habitante1);
-        vivienda1.agregarHabitante(habitante2);
-        vivienda2.agregarHabitante(habitante3);
-
-        vivienda1.mostrarInformacion();
-        habitante1.mostrarDatos();
-        habitante2.mostrarDatos();
-
-        System.out.println("---------------");
-        vivienda2.mostrarInformacion();
-        habitante3.mostrarDatos();
-
+        // Usar las instancias creadas
+        System.out.println("El habitante " + habitante.getNombre() + " tiene " + habitante.getEdad() + " años y es " + habitante.getEstadoCivil());
+        ocupacion.mostrarDatos();
+        System.out.println("La vivienda en la que vive " + habitante.getNombre() + " está ubicada en " + vivienda.getDireccion() + " y tiene " + vivienda.getNumHabitaciones() + " habitaciones y " + vivienda.getNumBanios() + " baños.");
+        
     }
 }
